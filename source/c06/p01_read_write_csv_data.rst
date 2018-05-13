@@ -35,7 +35,7 @@
             # Process row
             ...
 
-在上面的代码中， ``row`` 会是一个元组。因此，为了访问某个字段，你需要使用下标，如 ``row[0]`` 访问Symbol， ``row[4]`` 访问Change。
+在上面的代码中， ``row`` 会是一个列表。因此，为了访问某个字段，你需要使用下标，如 ``row[0]`` 访问Symbol， ``row[4]`` 访问Change。
 
 由于这种下标访问通常会引起混淆，你可以考虑使用命名元组。例如：
 
@@ -66,7 +66,7 @@
             # process row
             ...
 
-在这个版本中，你可以使用列名去访问每一行的数据了。比如，``row['Symbol']`` 或者 ``row['Change']`` 。
+在这个版本中，你可以使用列名去访问每一行的数据了。比如，``row['Symbol']`` 或者 ``row['Change']``
 
 为了写入CSV数据，你仍然可以使用csv模块，不过这时候先创建一个 ``writer`` 对象。例如:
 
@@ -135,10 +135,9 @@
 如果你正在读取CSV数据并将它们转换为命名元组，需要注意对列名进行合法性认证。
 例如，一个CSV格式文件有一个包含非法标识符的列头行，类似下面这样：
 
-.. code-block::
+.. code-block:: text
 
-    Street Address,Num-Premises,Latitude,Longitude
-    5412 N CLARK,10,41.980262,-87.668452
+    Street Address,Num-Premises,Latitude,Longitude 5412 N CLARK,10,41.980262,-87.668452
 
 这样最终会导致在创建一个命名元组时产生一个 ``ValueError`` 异常而失败。
 为了解决这问题，你可能不得不先去修正列标题。

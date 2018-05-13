@@ -38,6 +38,7 @@
     2
     3
     >>>
+
 有时候，过滤规则比较复杂，不能简单的在列表推导或者生成器表达式中表达出来。
 比如，假设过滤的时候需要处理一些异常或者其他复杂情况。这时候你可以将过滤代码放到一个函数中，
 然后使用内建的 ``filter()`` 函数。示例如下：
@@ -94,7 +95,7 @@
         '5412 N CLARK',
         '5148 N CLARK',
         '5800 E 58TH',
-        '2122 N CLARK'
+        '2122 N CLARK',
         '5645 N RAVENSWOOD',
         '1060 W ADDISON',
         '4801 N BROADWAY',
@@ -111,9 +112,9 @@
     >>> more5
     [False, False, True, False, False, True, True, False]
     >>> list(compress(addresses, more5))
-    ['5800 E 58TH', '4801 N BROADWAY', '1039 W GRANVILLE']
+    ['5800 E 58TH', '1060 W ADDISON', '4801 N BROADWAY']
     >>>
-这里的关键点在于先创建一个 ``Boolean`` 序列，指示哪些元素复合条件。
+这里的关键点在于先创建一个 ``Boolean`` 序列，指示哪些元素符合条件。
 然后 ``compress()`` 函数根据这个序列去选择输出对应位置为 ``True`` 的元素。
 
 和 ``filter()`` 函数类似， ``compress()`` 也是返回的一个迭代器。因此，如果你需要得到一个列表，

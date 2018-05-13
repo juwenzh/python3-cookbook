@@ -10,8 +10,6 @@
 ----------
 解决方案
 ----------
-The easiest way to add logging to simple programs is to use the logging module. For
-example:
 打印日志最简单方式是使用 ``logging`` 模块。例如：
 
 .. code-block:: python
@@ -54,8 +52,6 @@ example:
     CRITICAL:root:Host www.python.org unknown
     ERROR:root:Could not find 'spam'
 
-If you want to change the output or level of output, you can change the parameters to
-the basicConfig() call. For example:
 如果你想改变输出等级，你可以修改 ``basicConfig()`` 调用中的参数。例如：
 
 .. code-block:: python

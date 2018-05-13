@@ -12,7 +12,7 @@
 解决方案
 ----------
 ``collections.namedtuple()`` 函数通过使用一个普通的元组对象来帮你解决这个问题。
-这个函数实际上是一个返回Python中标准元组类型子类的一个工厂方法。
+这个函数实际上是一个返回 Python 中标准元组类型子类的一个工厂方法。
 你需要传递一个类型名和你需要的字段给它，然后它就会返回一个类，你可以初始化这个类，为你定义的字段传递值等。
 代码示例：
 
@@ -52,10 +52,10 @@
 .. code-block:: python
 
     def compute_cost(records):
-    total = 0.0
-    for rec in records:
-        total += rec[1] * rec[2]
-    return total
+        total = 0.0
+        for rec in records:
+            total += rec[1] * rec[2]
+        return total
 
 下标操作通常会让代码表意不清晰，并且非常依赖记录的结构。
 下面是使用命名元组的版本：
@@ -69,7 +69,7 @@
         total = 0.0
         for rec in records:
             s = Stock(*rec)
-        total += s.shares * s.price
+            total += s.shares * s.price
         return total
 
 ----------
@@ -90,7 +90,7 @@
     AttributeError: can't set attribute
     >>>
 
-如果你真的需要改变然后的属性，那么可以使用命名元组实例的 ``_replace()`` 方法，
+如果你真的需要改变属性的值，那么可以使用命名元组实例的 ``_replace()`` 方法，
 它会创建一个全新的命名元组并将对应的字段用新的值取代。比如：
 
 .. code-block:: python
@@ -130,5 +130,4 @@
     >>>
 
 最后要说的是，如果你的目标是定义一个需要更新很多实例属性的高效数据结构，那么命名元组并不是你的最佳选择。
-这时候你应该考虑定义一个包含 ``__slots__`` 方法的类(参考8.4小节)。
-
+这时候你应该考虑定义一个包含 ``__slots__`` 方法的类（参考8.4小节）。

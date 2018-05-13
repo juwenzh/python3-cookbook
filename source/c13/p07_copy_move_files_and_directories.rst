@@ -5,7 +5,7 @@
 ----------
 问题
 ----------
-你想哟啊复制或移动文件和目录，但是又不想调用shell命令。
+你想要复制或移动文件和目录，但是又不想调用shell命令。
 
 ----------
 解决方案
@@ -54,10 +54,11 @@
 
     shutil.copytree(src, dst, ignore=ignore_pyc_files)
 
-Since ignoring filename patterns is common, a utility function ignore_patterns() has
-already been provided to do it. For example:
+由于忽略某种模式的文件名是很常见的，因此一个便捷的函数 ``ignore_patterns()`` 已经包含在里面了。例如：
 
-shutil.copytree(src, dst, ignore=shutil.ignore_patterns('*~','*.pyc'))
+.. code-block:: python
+
+    shutil.copytree(src, dst, ignore=shutil.ignore_patterns('*~', '*.pyc'))
 
 ----------
 讨论
